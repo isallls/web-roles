@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Roles;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RoleUser extends Controller
@@ -12,6 +14,11 @@ class RoleUser extends Controller
     public function index()
     {
         //
+        return view('admin.users',[
+            'user' => User::all(),
+            'roles' => Roles::all(), 
+
+        ]);
     }
 
     /**

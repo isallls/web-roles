@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 use PharIo\Manifest\Author;
 
 class userController extends Controller
@@ -30,5 +31,12 @@ class userController extends Controller
     }
     public function home(){
         return view('user.menu');
+    }
+    public function logOut(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

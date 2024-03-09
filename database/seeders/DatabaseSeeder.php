@@ -20,13 +20,19 @@ class DatabaseSeeder extends Seeder
             'name' => 'kucing',
             'password' => 'kucing',
             'email' => 'kucing@email.com',
-            'role' => '1'
+            'role_id' => '1'
         ]);
         User::create([
             'name' => 'notrisaa',
             'password' => 'notrisaa',
             'email' => 'notrisaa@email.com',
-            'role' => '2'
+            'role_id' => '2'
+        ]);
+        User::create([
+            'name' => 'jasheil',
+            'password' => 'jasheil',
+            'email' => 'jasheil@email.com',
+            'role_id' => '2'
         ]);
 
         // \App\Models\User::factory()->create([

@@ -4,16 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User;
 
 class Roles extends Model
 {
     use HasFactory;
-    protected $fillable = [
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable= [
         'role',
         'description',
         'role_id'
     ];
-    public function user(){
-        return  $this->hasMany(User::class);
+    public function roles(){
+        return $this->hasMany(User::class,'role_id');
     }
 }
