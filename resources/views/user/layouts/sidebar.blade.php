@@ -1,4 +1,4 @@
-
+{{-- 
 <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
     <span class="sr-only">Open sidebar</span>
     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -89,4 +89,101 @@
           </li>
        </ul>
     </div>
-  </aside>
+  </aside> --}}
+  <div class="wrapper">
+   <aside id="sidebar">
+       <div class="d-flex">
+           <button class="toggle-btn" type="button">
+               <i class="lni lni-grid-alt"></i>
+           </button>
+           <div class="sidebar-logo">
+               <a href="#">
+                <img src="https://64.media.tumblr.com/68a9a13536ea43fbd97771dd6c5e81df/51bd1f131d0b0662-d7/s640x960/ff96b165de1d384049abdb1657dbd474863947c0.gifv" alt="" srcset="" class="img-fluid rounded">
+
+               </a>
+           </div>
+       </div>
+       <ul class="sidebar-nav">
+           <li class="sidebar-item">
+               <a href="#" class="sidebar-link">
+                   <i class="lni lni-user"></i>
+                   <span>Profile</span>
+               </a>
+           </li>
+           <li class="sidebar-item">
+               <a href="#" class="sidebar-link">
+                   {{-- <i class="lni lni-agenda"></i> --}}
+                   <i class="fa-solid fa-book"></i>
+                   <span>Products</span>
+               </a>
+           </li>
+           <li class="sidebar-item">
+               <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                   data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                   <i class="lni lni-protection"></i>
+                   <span>Auth</span>
+               </a>
+               <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                   <li class="sidebar-item">
+                       <a href="#" class="sidebar-link">Login</a>
+                   </li>
+                   <li class="sidebar-item">
+                       <a href="#" class="sidebar-link">Register</a>
+                   </li>
+               </ul>
+           </li>
+           <li class="sidebar-item">
+               <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                   data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                   <i class="lni lni-layout"></i>
+                   <span>Multi Level</span>
+               </a>
+               <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                   <li class="sidebar-item">
+                       <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                           data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
+                           Two Links
+                       </a>
+                       <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                           <li class="sidebar-item">
+                               <a href="#" class="sidebar-link">Link 1</a>
+                           </li>
+                           <li class="sidebar-item">
+                               <a href="#" class="sidebar-link">Link 2</a>
+                           </li>
+                           <li class="sidebar-item">
+                               <a href="#" class="sidebar-link">Link 2</a>
+                           </li>
+                       </ul>
+                   </li>
+               </ul>
+           </li>
+           <li class="sidebar-item">
+               <a href="#" class="sidebar-link">
+                   <i class="lni lni-popup"></i>
+                   <span>Notification</span>
+               </a>
+           </li>
+           <li class="sidebar-item">
+               <a href="#" class="sidebar-link">
+                   <i class="lni lni-cog"></i>
+                   <span>Setting</span>
+               </a>
+           </li>
+       </ul>
+       <div class="sidebar-footer">
+           <a href="#" class="sidebar-link">
+               <i class="lni lni-exit"></i>
+               <span>Logout</span>
+           </a>
+       </div>
+   </aside>
+   <div class="main p-3">
+       <div class="text-center">
+           <h1>
+               Sidebar Bootstrap 5
+           </h1>
+
+       </div>
+       <div>
+         {{-- here --}} 
