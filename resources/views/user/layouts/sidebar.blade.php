@@ -103,7 +103,13 @@
                </a>
            </div>
        </div>
-       <ul class="sidebar-nav">
+       <ul class="sidebar-nav ">
+           <li class="sidebar-item">
+               <a href="{{ route('dashboard') }}" class="sidebar-link">
+                  <i class="lni lni-dashboard"></i>
+                   <span>Dashboard</span>
+               </a>
+           </li>
            <li class="sidebar-item">
                <a href="#" class="sidebar-link">
                    <i class="lni lni-user"></i>
@@ -111,7 +117,7 @@
                </a>
            </li>
            <li class="sidebar-item">
-               <a href="#" class="sidebar-link">
+               <a href="{{ route('product') }}" class="sidebar-link">
                    {{-- <i class="lni lni-agenda"></i> --}}
                    <i class="fa-solid fa-book"></i>
                    <span>Products</span>
