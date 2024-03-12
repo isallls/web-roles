@@ -57,8 +57,16 @@
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $u->name }}</td>
             <td>{{ $u->email }}</td>
-            {{-- <td>{{ ($u->roles->role_id < 2) ? $u->roles->role_id : 'null'  }}</td> --}}
-            <td>@mdo</td>
+            @if ($u->roles)
+            <td>{{ $u->roles->role }}</td>
+            @else
+            <td>no role</td>
+            @endif
+            <td>
+              <button type="button" class="btn btn-primary">
+                action
+              </button>
+            </td>
           </tr>
           @endforeach
         </tbody>
