@@ -36,12 +36,18 @@
 @endforeach
 </div> --}}
 <div>
+  <div class="p-4 mb-2 bg-danger text-white">
+    <div class="bg-primary">welcome</div>
+  </div>
+</div>
+<div>
     <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
             <th scope="col">Handle</th>
           </tr>
         </thead>
@@ -51,6 +57,7 @@
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $u->name }}</td>
             <td>{{ $u->email }}</td>
+            {{-- <td>{{ ($u->roles->role_id < 2) ? $u->roles->role_id : 'null'  }}</td> --}}
             <td>@mdo</td>
           </tr>
           @endforeach
