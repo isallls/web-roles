@@ -10,10 +10,12 @@ use PharIo\Manifest\Author;
 class userController extends Controller
 {
     //
-    public function loginpage(){
+    public function loginpage()
+    {
         return view('user.login');
     }
-    public function login(Request $request){
+    public function login(Request $request)
+    {
 
         $request->validate([
             'email' => 'required',
@@ -23,20 +25,26 @@ class userController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ];
-        if(Auth::attempt($data)){
+        if (Auth::attempt($data)) {
             return redirect()->route('menu');
-        }else{
+        } else {
             return redirect()->route('loginpage');
         }
     }
-    public function home(){
+    public function home()
+    {
         return view('user.menu');
     }
-    public function logOut(Request $request){
+    public function logOut(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+    public function profile()
+    {
+        return view('user.profile');
     }
 }
