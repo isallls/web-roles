@@ -16,7 +16,8 @@ class dashboardController extends Controller
             'role'=> Roles::find(1),
             'roles' => Roles::all(), 
             'testrole' => Roles::all(),
-            'testrole2' => Roles::find(2)->roles
+            'testrole2' => Roles::find(2)->roles,
+            'decr' => decrypt('eyJpdiI6InRtbkY0endQaFhyL2lHTzdEUjlWd2c9PSIsInZhbHVlIjoiK3NMaHNmU2d3RUdTb2hDVVBFWWM2UT09IiwibWFjIjoiMzFhMmY2MWUxZjFlNzIxNmIzY2Q5OWVjYmJkZWMzY2RjMjBlNjQxNjQ0ODNhNmRiYTcyYzZmZWY4YTA4ZmU2OSIsInRhZyI6IiJ9')
         ]);
     }
 }

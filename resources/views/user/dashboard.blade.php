@@ -71,5 +71,6 @@
           @endforeach
         </tbody>
       </table>
+      {{ $decr }}
 </div>
 @endsection
