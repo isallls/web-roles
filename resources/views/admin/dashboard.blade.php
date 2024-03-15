@@ -63,9 +63,11 @@
             <td>no role</td>
             @endif
             <td>
-              <button type="button" class="btn btn-primary">
-                action
-              </button>
+              <a href="{{ route('action',['id'=> encrypt( $u->email)]) }}">
+                <button type="button" class="btn btn-primary" class='button'>
+                  action
+                </button>
+              </a>
             </td>
           </tr>
           @endforeach
@@ -73,4 +75,14 @@
       </table>
       {{ $decr }}
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const butt = document.getElementByTagName('button')
+    butt.addEventListener('click',function(){
+    console.log('kucing')
+  })
+  })
+  
+  console.log('lcg');
+</script>
 @endsection
