@@ -12,10 +12,14 @@ class userController extends Controller
     //
     public function loginpage()
     {
+        if(auth()->check()){
+            return redirect()->route('dashboard');
+        }
         return view('user.login');
     }
     public function login(Request $request)
     {
+        
 
         $request->validate([
             'email' => 'required',
@@ -37,6 +41,7 @@ class userController extends Controller
     }
     public function logOut(Request $request)
     {
+        
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
@@ -45,6 +50,7 @@ class userController extends Controller
     }
     public function profile()
     {
+        
         return view('user.profile');
     }
 }

@@ -35,20 +35,31 @@ class DatabaseSeeder extends Seeder
             'email' => 'jasheil@email.com',
             'role_id' => '2'
         ]);
+        User::create([
+            'name' => 'tokyo',
+            'password' => 'tokyo',
+            'email' => 'tokyo@email.com',
+            'role_id' => '3'
+        ]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
         Roles::create([
-            'role' => 'admin',
+            'role' => 'owner',
             // 'description' => 'admin',
             'role_id' => 1
         ]);
         Roles::create([
-            'role' => 'helper',
+            'role' => 'admin',
             // 'description' => 'admin',
             'role_id' => 2
+        ]);
+        Roles::create([
+            'role' => 'helper',
+            // 'description' => 'admin',
+            'role_id' => 3
         ]);
     }
 }

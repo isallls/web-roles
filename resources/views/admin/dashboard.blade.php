@@ -57,15 +57,12 @@
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $u->name }}</td>
             <td>{{ $u->email }}</td>
-            @if ($u->roles)
-            <td>{{ $u->roles->role }}</td>
-            @else
-            <td>no role</td>
-            @endif
+            {{-- <td>{{ ($u->roles) ? true : false }}</td> --}}
+            <td>{{ ($u->roles) ? $u->roles->role : 'no roles' }}</td>
             <td>
               <a href="{{ route('action',['id'=> encrypt( $u->email)]) }}">
                 <button type="button" class="btn btn-primary" class='button'>
-                  action
+                  Set Role
                 </button>
               </a>
             </td>
@@ -76,7 +73,7 @@
       {{ $decr }}
 </div>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('c', function() {
     const butt = document.getElementByTagName('button')
     butt.addEventListener('click',function(){
     console.log('kucing')

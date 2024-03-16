@@ -13,7 +13,7 @@ class dashboardController extends Controller
     //
     public function dashboard(){
         return view('admin.dashboard',[
-            'users' => User::all(),
+            'users' => User::get()->roles,
             'user' => User::find(1),
             'role'=> Roles::find(1),
             'roles' => Roles::all(), 
@@ -26,7 +26,10 @@ class dashboardController extends Controller
         return view('admin.action',[
             // dd($request),
             'data' => $request->id,
-            // 'data1' => 
+            'roles' => Roles::all(),
+            'user' => User::find(decrypt($request->id)),
+            'testfind' => User::where('email',decrypt($request->id)),
+            'data1' =>  decrypt($request->id,)
         ]);
     }
 }
