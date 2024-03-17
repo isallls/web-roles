@@ -13,13 +13,12 @@ class userController extends Controller
     public function loginpage()
     {
         if(auth()->check()){
-            return redirect()->route('dashboard');
+            return redirect()->route('product');
         }
-        return view('user.login');
+        return view('user.login')->with('failed',true);
     }
     public function login(Request $request)
     {
-        
 
         $request->validate([
             'email' => 'required',

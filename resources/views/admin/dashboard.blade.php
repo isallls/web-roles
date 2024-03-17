@@ -70,7 +70,6 @@
           @endforeach
         </tbody>
       </table>
-      {{ $decr }}
 </div>
 <script>
   document.addEventListener('c', function() {

@@ -19,7 +19,7 @@
                     <tr class="bg-gray-100">
                         <td class="py-2 px-4">{{ $user->name }}</td>
                         <td class="py-2 px-4">{{ $user->email }}</td>
-                        <td class="py-2 px-4 text-left">{{ $user->roles->role }}</td>
+                        <td class="py-2 px-4 text-left">{{ ($user->roles)? true :false }}</td>
                         <td class="py-2 px-4 text-left"><a href="">edit</a></td>
                     </tr>
                     @endforeach

@@ -9,6 +9,11 @@
 </head>
 <body>
     <body class="bg-gray-200 flex items-center justify-center h-screen ">
+        @if (session('failed'))
+            <div class="alert alert-primary" role="alert">
+                This is a primary alert—check it out!
+            </div>
+        @endif
         <div class="bg-white p-8 rounded shadow-md w-96">
             <h2 class="text-2xl font-semibold mb-4">Login</h2>
             <form action="{{ route('login') }}" method="POST" >
@@ -31,13 +36,6 @@
                 </button>
             </form>
         </div>
-
-        
-        
-        
-        
-        
-        
     </body>
     
 </body>

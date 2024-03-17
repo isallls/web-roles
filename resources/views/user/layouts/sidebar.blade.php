@@ -104,12 +104,14 @@
            </div>
        </div>
        <ul class="sidebar-nav ">
-           <li class="sidebar-item">
-               <a href="{{ route('dashboard') }}" class="sidebar-link">
-                  <i class="lni lni-dashboard"></i>
-                   <span>Dashboard</span>
-               </a>
-           </li>
+        @can('admin')
+        <li class="sidebar-item">
+            <a href="{{ route('dashboard') }}" class="sidebar-link">
+                <i class="lni lni-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        @endcan
            <li class="sidebar-item">
                <a href="{{ route('profile') }}" class="sidebar-link">
                    <i class="lni lni-user"></i>
@@ -178,7 +180,7 @@
            </li>
        </ul>
        <div class="sidebar-footer">
-           <a href="#" class="sidebar-link">
+           <a href="{{ route('logout') }}" class="sidebar-link">
                <i class="lni lni-exit"></i>
                <span>Logout</span>
            </a>

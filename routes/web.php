@@ -23,13 +23,17 @@ use Spatie\FlareClient\View;
 Route::get('/', [userController::class, 'loginpage'])->name('loginpage');
 Route::post('/login', [userController::class, 'login'])->name('login');
 Route::get('/menu', [userController::class, 'home'])->name('menu')->middleware('auth');
-Route::get('/dashboard', [dashboardController::class, 'dashboard'])->name('dashboard');
+
 Route::get('/dashboard/action/{id}', [dashboardController::class, 'action'])->name('action');
 Route::get('/products', [productController::class, 'show'])->name('product');
 Route::get('/logout', [userController::class, 'logOut'])->name('logout');
-Route::get('/users', [RoleUser::class, 'index'])->name('users');
-Route::get('/profile', [userController::class, 'profile'])->name('profile');
+Route::get('/profile', [userController::class, 'profile'])->name('profile')->middleware('islogin');
 
 Route::get('/main', function () {
     return View('main');
+});
+
+Route::group(['middleware' =>['adminOnly']],function(){
+    Route::get('/users', [RoleUser::class, 'index'])->name('users');
+    Route::get('/dashboard', [dashboardController::class, 'dashboard'])->name('dashboard');
 });
