@@ -47,6 +47,9 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\adminOnly::class,
             \App\Http\Middleware\tests::class,
 
+        ],
+        'owner'=>[
+            \App\Http\Middleware\owner::class,
         ]
     ];
 

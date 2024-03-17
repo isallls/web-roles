@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use PharIo\Manifest\Author;
+use SebastianBergmann\CodeUnit\FunctionUnit;
 
 class userController extends Controller
 {
@@ -40,7 +41,6 @@ class userController extends Controller
     }
     public function logOut(Request $request)
     {
-        
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
@@ -51,5 +51,11 @@ class userController extends Controller
     {
         
         return view('user.profile');
+    }
+    public function signup(){
+        if(!Auth::guest()){
+            return redirect()->route('menu');
+        }
+        return view('user.menu');
     }
 }

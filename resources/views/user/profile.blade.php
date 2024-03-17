@@ -2,7 +2,7 @@
 @section('container')
 <div>
     <p>name : {{ Auth::user()->name }}</p>
-    <p>role : {{ (Auth::user()->roles) ? 'role anda ' . Auth::user()->roles->role : 'anda bukan role' . false  }}</p>
+    <p>role : {{ (Auth::user()->roles) ? Auth::user()->roles->role : 'undifined'  }}</p>
     {{-- <p>{{ (Auth::user()->roles->role == 'owner' ) ? true . ' yes anda owner'  : 'anda bukan owner ' . false }}</p> --}}
     <p>{{ (Auth::user()->roles)? true : false }}</p>
     <div><p>Watch: </p></div>
