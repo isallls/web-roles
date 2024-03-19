@@ -48,6 +48,9 @@
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Role</th>
+            @can('admin')
+            <th scope="col">id</th>
+            @endcan
             @can('owner')
             <th scope="col">Handle</th>
             @endcan
@@ -61,6 +64,7 @@
             <td>{{ $u->email }}</td>
             {{-- <td>{{ ($u->roles) ? true : false }}</td> --}}
             <td>{{ ($u->roles) ? $u->roles->role : 'no roles' }}</td>
+            <td>{{ $u->id}}</td>
             @can('owner')
             <td>
               <a href="{{ route('action',['id'=> encrypt( $u->email)]) }}">
@@ -80,13 +84,6 @@
 </div>
 
 <script>
-  document.addEventListener('c', function() {
-    const butt = document.getElementByTagName('button')
-    butt.addEventListener('click',function(){
-    console.log('kucing')
-  })
-  })
-  
-  console.log('lcg');
+  console.log('JetBrains Mono Font of')
 </script>
 @endsection
