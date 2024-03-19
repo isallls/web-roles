@@ -10,7 +10,7 @@
 <div class="mb-5" style="display: flex;">
     <form>
         <div class="form-group row mb-3">
-          <label for="staticEmail" class="col-sm-2 col-form-label">{{ decrypt($data) }}</label>
+          <label for="staticEmail" class="col-sm-2 col-form-label">{{ $data->name }}</label>
           <div class="col-sm-10">
             <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="">
           </div>

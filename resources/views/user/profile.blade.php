@@ -2,11 +2,14 @@
 @section('container')
 <div>
     <p>name : {{ Auth::user()->name }}</p>
+    @can('admin')
     <p>role : {{ (Auth::user()->roles) ? Auth::user()->roles->role : 'undifined'  }}</p>
+    <p>isOwner? : {{ (Auth::user()->roles->role == 'owner') ? 'Yes' :  'Not' }}</p>
     {{-- <p>{{ (Auth::user()->roles->role == 'owner' ) ? true . ' yes anda owner'  : 'anda bukan owner ' . false }}</p> --}}
+    @endcan
     <p>{{ (Auth::user()->roles)? true : false }}</p>
-    <div><p>Watch: </p></div>
-    
+    <p>{{ $user1->name }}</p>
+    <span class="pf pf-pagseguro"></span>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {

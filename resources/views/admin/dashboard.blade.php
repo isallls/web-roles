@@ -48,7 +48,9 @@
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Role</th>
+            @can('owner')
             <th scope="col">Handle</th>
+            @endcan
           </tr>
         </thead>
         <tbody>
@@ -59,6 +61,7 @@
             <td>{{ $u->email }}</td>
             {{-- <td>{{ ($u->roles) ? true : false }}</td> --}}
             <td>{{ ($u->roles) ? $u->roles->role : 'no roles' }}</td>
+            @can('owner')
             <td>
               <a href="{{ route('action',['id'=> encrypt( $u->email)]) }}">
                 <button type="button" class="btn btn-primary" class='button'>
@@ -66,11 +69,16 @@
                 </button>
               </a>
             </td>
+            @endcan
           </tr>
           @endforeach
         </tbody>
       </table>
+      @foreach ($main as $item)
+      <h1>test</h1>
+      @endforeach
 </div>
+
 <script>
   document.addEventListener('c', function() {
     const butt = document.getElementByTagName('button')

@@ -27,7 +27,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         //
         Gate::define('admin',function(){
-            if(Auth::user()->roles){
+            if(Auth::user()->roles && Auth::check()) {
+                return true;
+            }
+            return false;
+        });
+        
+        Gate::define('owner',function() {
+            if(Auth::user()->roles->role == 'owner' && Auth::check()){
                 return true;
             }
             return false;

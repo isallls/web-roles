@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
@@ -50,7 +51,11 @@ class userController extends Controller
     public function profile()
     {
         
-        return view('user.profile');
+        return view('user.profile',[
+            'user1' => User::find('1'),
+            'useremail' => User::where('email', 'kucing@email.com')->first()
+
+        ]);
     }
     public function signup(){
         if(!Auth::guest()){
