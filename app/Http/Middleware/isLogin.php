@@ -22,3 +22,5 @@ class isLogin
         return redirect()->route('loginpage');
     }
 }
+?>
+

@@ -9,8 +9,10 @@
     @endcan
     <p>{{ (Auth::user()->roles)? true : false }}</p>
     <p>{{ $user1->name }}</p>
+    <p>{{ $useremail->email }}</p>
     <span class="pf pf-pagseguro"></span>
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const p = document.querySelectorAll('p')[3]
@@ -26,4 +28,5 @@
         }, 1000);
     })
 </script>
+
 @endsection
