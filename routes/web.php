@@ -17,33 +17,32 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/main', function () {
     return View('main');
 });
 
 // Route::group(['middleware'=>['guest']],function(){
-    Route::get('/', [userController::class, 'loginpage'])->name('loginpage');
-    Route::post('/login', [userController::class, 'login'])->name('login');
-    Route::get('/products', [productController::class, 'show'])->name('product');
-    Route::get('/signup', [userController::class, 'signup'])->name('signup');
+Route::get('/', [userController::class, 'loginpage'])->name('loginpage');
+Route::post('/login', [userController::class, 'login'])->name('login');
+Route::get('/products', [productController::class, 'show'])->name('product');
+Route::get('/signup', [userController::class, 'signup'])->name('signup');
 // });
 
 
-Route::group(['middleware' => ['auth']],function(){
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/menu', [userController::class, 'home'])->name('menu');
     Route::get('/profile', [userController::class, 'profile'])->name('profile');
     Route::get('/logout', [userController::class, 'logOut'])->name('logout');
-    
-    
-    Route::group(['middleware' => ['adminOnly']],function(){
+
+
+    Route::group(['middleware' => ['adminOnly']], function () {
         Route::get('/users', [RoleUser::class, 'index'])->name('users');
         Route::get('/dashboard', [dashboardController::class, 'dashboard'])->name('dashboard');
 
-        
-        Route::group(['middleware' => ['owner']],function(){
+
+        Route::group(['middleware' => ['owner']], function () {
             Route::get('/dashboard/action/{id}', [dashboardController::class, 'action'])->name('action');
         });
-        
     });
-
 });
