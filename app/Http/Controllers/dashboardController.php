@@ -14,7 +14,7 @@ class dashboardController extends Controller
     //
     public function dashboard(){
         return view('admin.dashboard',[
-            'users' => User::all(),
+            'users' => User::orderBy('role_id','desc')->get(),
             'user' => User::find(1),
             'role'=> Roles::find(1),
             'roles' => Roles::all(), 
