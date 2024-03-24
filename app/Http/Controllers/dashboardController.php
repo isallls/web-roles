@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Psy\CodeCleaner\FunctionContextPass;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Termwind\Components\Dd;
 
 class dashboardController extends Controller
 {
@@ -25,7 +26,7 @@ class dashboardController extends Controller
         ]);
     }
 
-    public function action(Request $request)
+    public function action(Request $request,)
     {
         if (!Auth::check() && !Auth::user()->roles->role == 'owner') {
             return redirect()->back();
@@ -35,7 +36,23 @@ class dashboardController extends Controller
             'user' => User::find(decrypt($request->id)),
             'testfind' => User::where('email', decrypt($request->id)),
             'data1' =>  decrypt($request->id,),
-            'data' => User::Where('email', decrypt($request->id))->first()
+            'data' => User::Where('email', decrypt($request->id))->first(),
+            'id' => $request->id,
+        ]);
+    }
+
+    public function revokeRole($usess)
+    {
+        $s = decrypt($usess);
+        return view('te', [
+            's' => $s
+        ]);
+    }
+
+    public function test()
+    {
+        return view('wer', [
+            'd' => 'kucing',
         ]);
     }
 }

@@ -40,9 +40,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/users', [RoleUser::class, 'index'])->name('users');
         Route::get('/dashboard', [dashboardController::class, 'dashboard'])->name('dashboard');
 
-
         Route::group(['middleware' => ['owner']], function () {
             Route::get('/dashboard/action/{id}', [dashboardController::class, 'action'])->name('action');
+            Route::get('/dashboard/action/revoke/{id}', [dashboardController::class, 'revokerole'])->name('revokerole');
+            Route::get('te/{dd}', [dashboardController::class, 'test'])->name('test1');
         });
     });
 });

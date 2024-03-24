@@ -31,7 +31,8 @@
         </form>
     </div>
     <div class="mt-3">
-        <form action="">
+        <form action="{{ route('revokerole',['id'=>$id]) }}" method="get">
+            @csrf
             <div class="form-group row">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Revoke Role</label>
                 <div class="col-sm-10">
@@ -40,6 +41,10 @@
                     </button>
                 </div>
             </div>
+        </form>
+        <form action="{{ route('ai/'.['dd'=>$d]) }}">
+            @csrf
+            <button>test</button>
         </form>
         <div>
             {{-- {{ $data->name }} --}}
