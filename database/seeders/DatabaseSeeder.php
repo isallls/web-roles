@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\product;
 use App\Models\Roles;
+use App\Models\ls;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -61,5 +63,20 @@ class DatabaseSeeder extends Seeder
             // 'description' => 'admin',
             'role_id' => 3
         ]);
+
+        product::create([
+            'title' => 'RTX 4070',
+            'price' => 11000000,
+            'description' => 'gaming on rtx',
+            'owner' => 'kucing@email.com',
+            'image' => 'image.jpg',
+            'last_edited_at' => now(), // Atau gunakan waktu saat ini
+
+        ]);
+
+        ls::create([
+            'mmm' => 'kambing'
+        ]);
+        
     }
 }

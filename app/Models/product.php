@@ -2,19 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class product extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
     protected $fillable = [
-        'id',
+        'uuid',
         'title',
         'price',
         'description',
         'owner',
-        'product_id',
         'image',
         'last_edited_at',
     ];

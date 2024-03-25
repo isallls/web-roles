@@ -43,8 +43,11 @@ class dashboardController extends Controller
     public function revokeRole($email)
     {
         $s = decrypt($email);
+        $user = User::where('email',$s)->first();
+        // $user->set
         return view('te', [
-            's' => $s
+            's' => $s,
+            'data' => $user
         ]);
         // return redirect()->back();
     }

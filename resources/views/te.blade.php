@@ -1,1 +1,1 @@
-{{ $s }}
+{{ $data->roles->role }}
