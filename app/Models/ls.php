@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ls extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'mmm'
-    ];
+    // protected $fillable = [
+    //     'mmm'
+    // ];
 }
