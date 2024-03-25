@@ -4,6 +4,7 @@
     <div>
     </div>
     <div>
+        {{ $d }}
     </div>
     <div class="mb-5" style="display: flex;">
         <form>
@@ -42,16 +43,18 @@
                 </div>
             </div>
         </form>
-        <form action="{{ route('ai/'.['dd'=>$d]) }}">
+        <form action="{{  route('test1',['dd'=>$d])  }}" method="get">
             @csrf
-            <button>test</button>
+            <button>
+                test
+            </button>
         </form>
         <div>
             {{-- {{ $data->name }} --}}
             @if (!is_null($data->roles))
-                lksdjfjksdff
+            role
             @else
-                lskdf
+            notrole
             @endif
         </div>
     </div>

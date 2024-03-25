@@ -6,9 +6,6 @@ use App\Models\Roles;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Psy\CodeCleaner\FunctionContextPass;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Termwind\Components\Dd;
 
 class dashboardController extends Controller
 {
@@ -22,7 +19,7 @@ class dashboardController extends Controller
             'roles' => Roles::all(),
             'testrole' => Roles::all(),
             'testrole2' => Roles::find(2)->roles,
-            'main' => User::all()->where('roles', true)->all()
+            'main' => User::all()->where('roles', true)->all(),
         ]);
     }
 
@@ -38,21 +35,25 @@ class dashboardController extends Controller
             'data1' =>  decrypt($request->id,),
             'data' => User::Where('email', decrypt($request->id))->first(),
             'id' => $request->id,
+            'd' => 'kucing',
+
         ]);
     }
 
-    public function revokeRole($usess)
+    public function revokeRole($email)
     {
-        $s = decrypt($usess);
+        $s = decrypt($email);
         return view('te', [
             's' => $s
         ]);
+        // return redirect()->back();
     }
 
-    public function test()
+    public function test($id)
     {
         return view('wer', [
             'd' => 'kucing',
+            's' => $id
         ]);
     }
 }
