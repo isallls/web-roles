@@ -4,10 +4,11 @@
     <div>
     </div>
     <div>
-        {{ $d }}
+        ldskffdss{{ ($data->roles)? $data->roles->role : FALSE }}
     </div>
     <div class="mb-5" style="display: flex;">
-        <form>
+        <form action="{{ route('test1',[encrypt($data->id)]) }}" method="post">
+            @csrf
             <div class="form-group row mb-3">
                 <label for="" class="col-sm-2 col-form-label">{{ $data->name }}</label>
                 <div class="col-sm-10">
@@ -18,17 +19,20 @@
                 <label for="inputPassword" class="col-sm-2 col-form-label">Role</label>
                 <div class="col-sm-10">
                     <select class="form-select" name="role" aria-label="Disabled select example">
-                        <option selected>Open this select menu</option>
+                        <option disabled selected>Edit</option>
                         @foreach ($roles as $role)
                             @if (!is_null($data->roles) && old('role', $data->roles->role == $role->role) && true)
-                                <option selected>{{ $role->role }}</option>
+                                <option selected value="{{ $data->roles->role }}">{{ $role->role }}</option>
                             @else
-                                <option>{{ $role->role }}</option>
+                                <option value="{{ $role->role_id }}">{{ $role->role }}</option>
                             @endif
                         @endforeach
                     </select>
                 </div>
             </div>
+            <button>
+                edit
+            </button>
         </form>
     </div>
     <div class="mt-3">

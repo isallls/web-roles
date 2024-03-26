@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(10)->create();
-        User::factory(10)->create();
+        User::factory(100)->create();
         User::create([
             'name' => 'kucing',
             'password' => 'kucing',
@@ -74,9 +74,8 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
-        ls::create([
-            'mmm' => 'kambing'
-        ]);
-        
+        // ls::create([
+        //     'mmm' => 'kambing'
+        // ]);
     }
 }

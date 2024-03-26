@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['middleware' => ['owner']], function () {
             Route::get('/dashboard/action/{id}', [dashboardController::class, 'action'])->name('action');
             Route::get('/dashboard/action/revoke/{id}', [dashboardController::class, 'revokerole'])->name('revokerole');
-            Route::get('te/{dd}', [dashboardController::class, 'test'])->name('test1');
+            Route::post('te/{dd}', [dashboardController::class, 'test'])->name('test1');
         });
     });
 });

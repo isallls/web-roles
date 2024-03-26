@@ -31,7 +31,7 @@ class dashboardController extends Controller
         return view('admin.action', [
             'roles' => Roles::all(),
             'user' => User::find(decrypt($request->id)),
-            'testfind' => User::where('email', decrypt($request->id)),
+            'testfind' => User::where('email', decrypt($request->id))->first(),
             'data1' =>  decrypt($request->id,),
             'data' => User::Where('email', decrypt($request->id))->first(),
             'id' => $request->id,
@@ -40,23 +40,26 @@ class dashboardController extends Controller
         ]);
     }
 
-    public function revokeRole($email)
+    public function revokeRole($id)
     {
-        $s = decrypt($email);
-        $user = User::where('email',$s)->first();
-        // $user->set
-        return view('te', [
-            's' => $s,
-            'data' => $user
+        $id = User::where('email', decrypt($id))->first()->id;
+        $user = User::find($id);
+
+        $user->update([
+            'role_id' => NULL,
+            'updated_at' => time()
         ]);
-        // return redirect()->back();
+        return redirect()->back();
     }
 
-    public function test($id)
+    public function test(Request $request, $id)
     {
-        return view('wer', [
-            'd' => 'kucing',
-            's' => $id
+
+        $user = User::find(decrypt($id));
+        $user->update([
+            'role_id' => $request->role,
+            'updated_at' => time()
         ]);
+        return redirect()->back();
     }
 }
