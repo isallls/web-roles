@@ -10,6 +10,7 @@
     <p>{{ (Auth::user()->roles)? true : false }}</p>
     <p>{{ $user1->name }}</p>
     <p>{{ $useremail->email }}</p>
+    <p>{{ $asd }}</p>
     <span class="pf pf-pagseguro"></span>
 </div>
 
@@ -24,7 +25,6 @@
             const minute = date.getMinutes()
             const second = date.getSeconds()
             p.innerHTML = `Watch: ${hour}:${minute}:${second}`
-            // console.log(`Watch: ${hour}:${minute}:${second}`)
         }, 1000);
     })
 </script>

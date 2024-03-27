@@ -14,10 +14,10 @@ class userController extends Controller
     //
     public function loginpage()
     {
-        if(auth()->check()){
+        if (auth()->check()) {
             return redirect()->route('product');
         }
-        return view('user.login')->with('failed',true);
+        return view('user.login')->with('failed', true);
     }
     public function login(Request $request)
     {
@@ -50,15 +50,17 @@ class userController extends Controller
     }
     public function profile()
     {
-        
-        return view('user.profile',[
+
+        return view('user.profile', [
             'user1' => User::find('1'),
-            'useremail' => User::where('email', 'kucing@email.com')->first()
+            'useremail' => User::where('email', 'kucing@email.com')->first(),
+            'asd' => decrypt('eyJpdiI6IjhFMEFSeXNKNXhVS3RYdytuQXlmTmc9PSIsInZhbHVlIjoib09Ic3NpampmdXpJYXo1UUNnTTh4Qit0SXMzdlA5Q2JKbFdGMXIyZWM5Y2xJVSs1ZEU1eitSQUUrOVlIQ3RiN3FJdnJNWVBDTXI0b1c0R1BXYU82K2ZsWU9LZURSUWtnL1pvWGMrdE04Yms9IiwibWFjIjoiOTg0OTBiMDRjZGEzN2RjYTdlYTY3NTc0YzgzMWUyNGNjOWMyMWQzOTc2MjAxZmYyZTU4OGE4ZjhhOWM4OGQwNCIsInRhZyI6IiJ9'),
 
         ]);
     }
-    public function signup(){
-        if(!Auth::guest()){
+    public function signup()
+    {
+        if (!Auth::guest()) {
             return redirect()->route('menu');
         }
         return view('user.menu');
